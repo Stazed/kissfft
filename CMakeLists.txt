@@ -47,7 +47,7 @@ set(KISSFFT_DATATYPE "float" CACHE STRING "Principal datatype of kissfft: double
 
 option(KISSFFT_OPENMP "Build kissfft with OpenMP support" OFF)
 option(KISSFFT_PKGCONFIG "Build pkg-config files" ON)
-option(KISSFFT_STATIC "Build kissfft as static (ON) or shared library (OFF)" OFF)
+option(KISSFFT_STATIC "Build kissfft as static (ON) or shared library (OFF)" ON)
 option(KISSFFT_TEST "Build kissfft tests" ON)
 option(KISSFFT_TOOLS "Build kissfft command-line tools" ON)
 option(KISSFFT_USE_ALLOCA "Use alloca instead of malloc" OFF)
@@ -97,7 +97,7 @@ endif()
 
 if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang|AppleClang")
     add_compile_options(-ffast-math -fomit-frame-pointer
-        -W -Wall -Wcast-align -Wcast-qual -Wshadow -Wwrite-strings
+        -W -Wall -Wcast-align -Wcast-qual -Wshadow -Wwrite-strings -fPIC
         "$<$<COMPILE_LANGUAGE:C>:-Wstrict-prototypes;-Wmissing-prototypes;-Wnested-externs;-Wbad-function-cast>")
 endif()
 
